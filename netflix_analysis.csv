@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(6, 4))
+sns.countplot(data=df, x="type", palette="coolwarm")
+plt.title("Count of Movies vs TV Shows")
+plt.show()
+df["release_year"] = pd.to_datetime(df["release_year"], errors="coerce")
+df["release_year"].value_counts().sort_index().plot(kind="line", figsize=(10, 5), color="red")
+plt.title("Number of Netflix Releases Over the Years")
+plt.xlabel("Year")
+plt.ylabel("Count")
+plt.show()
